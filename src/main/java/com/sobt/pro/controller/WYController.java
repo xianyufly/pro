@@ -23,7 +23,6 @@ public class WYController {
     Logger log= LoggerFactory.getLogger(this.getClass());
 
 
-
     @Resource
     WYService wyService;
 
