@@ -22,7 +22,9 @@ import javax.validation.Valid;
 public class WYController {
     Logger log= LoggerFactory.getLogger(this.getClass());
 
-
+    /*
+    啦啦啦
+    * */
     @Resource
     WYService wyService;
 
