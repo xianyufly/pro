@@ -1,0 +1,56 @@
+#公共配置
+server:
+  port: 12001
+#数据库连接池配置
+spring:
+  profiles:
+    active: local # 指定配置中心配置文件的{profile}
+  datasource:
+    tomcat:
+      jmx-enabled: true
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: false
+      validation-interval: 30000
+      validation-query: select 1
+      time-between-eviction-runs-millis: 30000
+      tomcat.max-active: 5
+      tomcat.initial-size: 1
+      tomcat.max-wait: -1
+      tomcat.min-evictable-idle-time-millis: 30000
+      tomcat.min-idle: 20
+# mybatis 配置
+mybatis:
+   config-location: classpath:config/mybatis-config.xml
+   mapper-locations: classpath:com/sobt/pro/dao/mapper/*.xml
+   type-aliases-package: com.sobt.pro.dao.bean
+---
+#本地配置
+spring:
+  profiles: local
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/news?&allowMultiQueries=true&useUnicode=true&autoReconnect=true&useOldAliasMetadataBehavior=true
+    username: root
+    password: xian0402
+#    url: jdbc:mysql://114.115.143.199:6306/news?&allowMultiQueries=true&useUnicode=true&autoReconnect=true&useOldAliasMetadataBehavior=true
+#    username: 17sobt.com
+#    password: 17sobt.com@123456
+python:
+  python_sql: mysql+mysqldb://root:xian0402@localhost:3306/news
+  chrome_driver_path: C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe
+  python_exe_path: C:\Users\Administrator\Desktop\python_news\news_prod\java_python
+---
+#prod
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.172:6306/news?&allowMultiQueries=true&useUnicode=true&autoReconnect=true&useOldAliasMetadataBehavior=true
+    username: 17sobt.com
+    password: 17sobt.com@123456
+python:
+  python_sql: mysql+mysqldb://17sobt.com:17sobt.com@123456@localhost:6306/news
+  chrome_driver_path: /usr/local/chromedriver
+  #python 扩展程序路径
+  python_exe_path: /data/pythonwork/news_prod/java_python

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sobt.pro.dao.TArticleDao" >
+    
+    <select id="selectRandomArticle" parameterType="HashMap" resultType="TArticle">
+        SELECT tid,
+        dir_name dirName,
+        title
+        FROM t_article ta
+        WHERE 1=1
+        AND ta.tid <![CDATA[<>]]> #{tid}
+        AND ta.art_type =#{artType}
+        AND ta.status=0
+        ORDER BY RAND() LIMIT 5
+    </select>
+
+</mapper>

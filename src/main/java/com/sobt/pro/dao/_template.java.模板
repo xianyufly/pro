@@ -1,0 +1,11 @@
+package com.xino.dao;
+
+import java.util.List;
+
+import com.xino.dao.func.TAdvertInfoMapper;
+import com.xino.v1.ctrl.paramDto.in.InitSettingInDto;
+
+public interface {{请改这}} extends {{请改这}}Mapper {
+
+
+}
