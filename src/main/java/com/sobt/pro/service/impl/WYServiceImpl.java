@@ -5,8 +5,11 @@ import com.sobt.pro.constant.MsgEnum;
 import com.sobt.pro.controller.paramDto.in.WYInDto;
 import com.sobt.pro.controller.paramDto.out.WYOutDto;
 import com.sobt.pro.dao.TArticleDao;
+import com.sobt.pro.dao.TBootstrapResDao;
 import com.sobt.pro.dao.bean.TArticle;
 import com.sobt.pro.dao.bean.TArticleExample;
+import com.sobt.pro.dao.bean.TBootstrapRes;
+import com.sobt.pro.dao.bean.TBootstrapResExample;
 import com.sobt.pro.service.WYService;
 import com.sobt.pro.vo.PythonConfig;
 import com.sobt.pro.vo.SuccessBean;
@@ -48,7 +51,7 @@ public class WYServiceImpl implements WYService {
 //            File path=new File(ResourceUtils.getURL("classpath:").getPath());
             String pythonPath=pythonConfig.getPython_exe_path();
 //            log.info("pythonPath:"+pythonPath);
-            String command=String.format("python %s//weiyun.py --python_sql %s --chrome_driver_path %s --qq %s --file_list %s ", pythonPath,python_sql,chrome_driver_path,qq,file_list);
+            String command=String.format("python %s//wy_download_url.py --python_sql %s --chrome_driver_path %s --qq %s --file_list %s ", pythonPath,python_sql,chrome_driver_path,qq,file_list);
 //            log.info("command:"+command);
             Process proc=Runtime.getRuntime().exec(command); //执行py文件
             InputStreamReader stdin=new InputStreamReader(proc.getInputStream());

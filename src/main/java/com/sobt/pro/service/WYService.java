@@ -8,5 +8,4 @@ public interface WYService {
 
     public SuccessBean<WYOutDto.DiskFileBatchDownloadOutDto> diskFileBatchDownload(WYInDto.DiskFileBatchDownloadInDto param);
 
-
 }

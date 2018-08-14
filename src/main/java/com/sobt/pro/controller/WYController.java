@@ -6,6 +6,7 @@ import com.sobt.pro.controller.paramDto.in.WYInDto;
 import com.sobt.pro.controller.paramDto.out.WYOutDto;
 import com.sobt.pro.service.WYService;
 import com.sobt.pro.vo.SuccessBean;
+import com.sun.net.httpserver.Authenticator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
@@ -22,9 +23,6 @@ import javax.validation.Valid;
 public class WYController {
     Logger log= LoggerFactory.getLogger(this.getClass());
 
-    /*
-    啦啦啦
-    * */
     @Resource
     WYService wyService;
 

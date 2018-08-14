@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sobt.pro.dao.TBootstrapResDao" >
+    <select id="selectRandomRes" parameterType="HashMap" resultType="TBootstrapRes">
+        SELECT tid,
+        dir_name dirName,
+        title,
+        face_url faceUrl
+        FROM t_bootstrap_res ta
+        WHERE 1=1
+        AND ta.tid <![CDATA[<>]]> #{tid}
+        AND ta.status=0
+        ORDER BY RAND() LIMIT 6
+    </select>
+</mapper>

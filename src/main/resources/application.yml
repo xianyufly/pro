@@ -39,7 +39,7 @@ spring:
 python:
   python_sql: mysql+mysqldb://root:xian0402@localhost:3306/news
   chrome_driver_path: C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe
-  python_exe_path: C:\Users\Administrator\Desktop\python_news\news_prod\java_python
+  python_exe_path: C:\Users\Administrator\Desktop\python_news\news_prod
 ---
 #prod
 spring:
@@ -53,4 +53,4 @@ python:
   python_sql: mysql+mysqldb://17sobt.com:17sobt.com@123456@localhost:6306/news
   chrome_driver_path: /usr/local/chromedriver
   #python 扩展程序路径
-  python_exe_path: /data/pythonwork/news_prod/java_python
+  python_exe_path: /data/pythonwork/news_prod
