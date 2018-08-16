@@ -1043,6 +1043,76 @@ public class TBootstrapResExample {
             addCriterion("file_id not between", value1, value2, "fileId");
             return (Criteria) this;
         }
+
+        public Criteria andSubjectCodeIsNull() {
+            addCriterion("subject_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeIsNotNull() {
+            addCriterion("subject_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeEqualTo(String value) {
+            addCriterion("subject_code =", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeNotEqualTo(String value) {
+            addCriterion("subject_code <>", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeGreaterThan(String value) {
+            addCriterion("subject_code >", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("subject_code >=", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeLessThan(String value) {
+            addCriterion("subject_code <", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeLessThanOrEqualTo(String value) {
+            addCriterion("subject_code <=", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeLike(String value) {
+            addCriterion("subject_code like", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeNotLike(String value) {
+            addCriterion("subject_code not like", value, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeIn(List<String> values) {
+            addCriterion("subject_code in", values, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeNotIn(List<String> values) {
+            addCriterion("subject_code not in", values, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeBetween(String value1, String value2) {
+            addCriterion("subject_code between", value1, value2, "subjectCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectCodeNotBetween(String value1, String value2) {
+            addCriterion("subject_code not between", value1, value2, "subjectCode");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

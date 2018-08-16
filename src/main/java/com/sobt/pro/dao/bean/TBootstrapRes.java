@@ -29,6 +29,8 @@ public class TBootstrapRes {
 
     private String fileId;
 
+    private String subjectCode;
+
     public Integer getTid() {
         return tid;
     }
@@ -139,5 +141,13 @@ public class TBootstrapRes {
 
     public void setFileId(String fileId) {
         this.fileId = fileId == null ? null : fileId.trim();
+    }
+
+    public String getSubjectCode() {
+        return subjectCode;
+    }
+
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode == null ? null : subjectCode.trim();
     }
 }

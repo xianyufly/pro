@@ -1,99 +1,49 @@
 package com.sobt.pro.dao.func;
 
-import com.sobt.pro.dao.bean.TBootstrapRes;
-import com.sobt.pro.dao.bean.TBootstrapResExample.Criteria;
-import com.sobt.pro.dao.bean.TBootstrapResExample.Criterion;
-import com.sobt.pro.dao.bean.TBootstrapResExample;
+import com.sobt.pro.dao.bean.TBootstrapTag;
+import com.sobt.pro.dao.bean.TBootstrapTagExample.Criteria;
+import com.sobt.pro.dao.bean.TBootstrapTagExample.Criterion;
+import com.sobt.pro.dao.bean.TBootstrapTagExample;
 import java.util.List;
 import org.apache.ibatis.jdbc.SQL;
 
-public class TBootstrapResSqlProvider {
+public class TBootstrapTagSqlProvider {
 
-    public String insertSelective(TBootstrapRes record) {
+    public String insertSelective(TBootstrapTag record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("t_bootstrap_res");
+        sql.INSERT_INTO("t_bootstrap_tag");
         
-        if (record.getTitle() != null) {
-            sql.VALUES("title", "#{title,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getMemo() != null) {
-            sql.VALUES("memo", "#{memo,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getCode() != null) {
-            sql.VALUES("code", "#{code,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getFaceUrl() != null) {
-            sql.VALUES("face_url", "#{faceUrl,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getViewUrl() != null) {
-            sql.VALUES("view_url", "#{viewUrl,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getDirKey() != null) {
-            sql.VALUES("dir_key", "#{dirKey,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getpDirKey() != null) {
-            sql.VALUES("p_dir_key", "#{pDirKey,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getDirName() != null) {
-            sql.VALUES("dir_name", "#{dirName,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getQq() != null) {
-            sql.VALUES("qq", "#{qq,jdbcType=VARCHAR}");
+        if (record.getText() != null) {
+            sql.VALUES("text", "#{text,jdbcType=VARCHAR}");
         }
         
         if (record.getStatus() != null) {
             sql.VALUES("status", "#{status,jdbcType=INTEGER}");
         }
         
-        if (record.getDownloadNum() != null) {
-            sql.VALUES("download_num", "#{downloadNum,jdbcType=INTEGER}");
+        if (record.getpTid() != null) {
+            sql.VALUES("p_tid", "#{pTid,jdbcType=INTEGER}");
         }
         
-        if (record.getViewNum() != null) {
-            sql.VALUES("view_num", "#{viewNum,jdbcType=INTEGER}");
-        }
-        
-        if (record.getFileId() != null) {
-            sql.VALUES("file_id", "#{fileId,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getSubjectCode() != null) {
-            sql.VALUES("subject_code", "#{subjectCode,jdbcType=VARCHAR}");
+        if (record.getCode() != null) {
+            sql.VALUES("code", "#{code,jdbcType=VARCHAR}");
         }
         
         return sql.toString();
     }
 
-    public String selectByExample(TBootstrapResExample example) {
+    public String selectByExample(TBootstrapTagExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("tid");
         } else {
             sql.SELECT("tid");
         }
-        sql.SELECT("title");
-        sql.SELECT("memo");
-        sql.SELECT("code");
-        sql.SELECT("face_url");
-        sql.SELECT("view_url");
-        sql.SELECT("dir_key");
-        sql.SELECT("p_dir_key");
-        sql.SELECT("dir_name");
-        sql.SELECT("qq");
+        sql.SELECT("text");
         sql.SELECT("status");
-        sql.SELECT("download_num");
-        sql.SELECT("view_num");
-        sql.SELECT("file_id");
-        sql.SELECT("subject_code");
-        sql.FROM("t_bootstrap_res");
+        sql.SELECT("p_tid");
+        sql.SELECT("code");
+        sql.FROM("t_bootstrap_tag");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -103,64 +53,24 @@ public class TBootstrapResSqlProvider {
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(TBootstrapRes record) {
+    public String updateByPrimaryKeySelective(TBootstrapTag record) {
         SQL sql = new SQL();
-        sql.UPDATE("t_bootstrap_res");
+        sql.UPDATE("t_bootstrap_tag");
         
-        if (record.getTitle() != null) {
-            sql.SET("title = #{title,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getMemo() != null) {
-            sql.SET("memo = #{memo,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getCode() != null) {
-            sql.SET("code = #{code,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getFaceUrl() != null) {
-            sql.SET("face_url = #{faceUrl,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getViewUrl() != null) {
-            sql.SET("view_url = #{viewUrl,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getDirKey() != null) {
-            sql.SET("dir_key = #{dirKey,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getpDirKey() != null) {
-            sql.SET("p_dir_key = #{pDirKey,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getDirName() != null) {
-            sql.SET("dir_name = #{dirName,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getQq() != null) {
-            sql.SET("qq = #{qq,jdbcType=VARCHAR}");
+        if (record.getText() != null) {
+            sql.SET("text = #{text,jdbcType=VARCHAR}");
         }
         
         if (record.getStatus() != null) {
             sql.SET("status = #{status,jdbcType=INTEGER}");
         }
         
-        if (record.getDownloadNum() != null) {
-            sql.SET("download_num = #{downloadNum,jdbcType=INTEGER}");
+        if (record.getpTid() != null) {
+            sql.SET("p_tid = #{pTid,jdbcType=INTEGER}");
         }
         
-        if (record.getViewNum() != null) {
-            sql.SET("view_num = #{viewNum,jdbcType=INTEGER}");
-        }
-        
-        if (record.getFileId() != null) {
-            sql.SET("file_id = #{fileId,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getSubjectCode() != null) {
-            sql.SET("subject_code = #{subjectCode,jdbcType=VARCHAR}");
+        if (record.getCode() != null) {
+            sql.SET("code = #{code,jdbcType=VARCHAR}");
         }
         
         sql.WHERE("tid = #{tid,jdbcType=INTEGER}");
@@ -168,7 +78,7 @@ public class TBootstrapResSqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, TBootstrapResExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, TBootstrapTagExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

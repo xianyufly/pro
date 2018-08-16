@@ -28,13 +28,13 @@ public interface TBootstrapResMapper {
         "dir_key, p_dir_key, ",
         "dir_name, qq, status, ",
         "download_num, view_num, ",
-        "file_id)",
+        "file_id, subject_code)",
         "values (#{title,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, ",
         "#{code,jdbcType=VARCHAR}, #{faceUrl,jdbcType=VARCHAR}, #{viewUrl,jdbcType=VARCHAR}, ",
         "#{dirKey,jdbcType=VARCHAR}, #{pDirKey,jdbcType=VARCHAR}, ",
         "#{dirName,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, ",
         "#{downloadNum,jdbcType=INTEGER}, #{viewNum,jdbcType=INTEGER}, ",
-        "#{fileId,jdbcType=VARCHAR})"
+        "#{fileId,jdbcType=VARCHAR}, #{subjectCode,jdbcType=VARCHAR})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="tid", before=false, resultType=Integer.class)
     int insert(TBootstrapRes record);
@@ -58,14 +58,15 @@ public interface TBootstrapResMapper {
         @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
         @Result(column="download_num", property="downloadNum", jdbcType=JdbcType.INTEGER),
         @Result(column="view_num", property="viewNum", jdbcType=JdbcType.INTEGER),
-        @Result(column="file_id", property="fileId", jdbcType=JdbcType.VARCHAR)
+        @Result(column="file_id", property="fileId", jdbcType=JdbcType.VARCHAR),
+        @Result(column="subject_code", property="subjectCode", jdbcType=JdbcType.VARCHAR)
     })
     List<TBootstrapRes> selectByExample(TBootstrapResExample example);
 
     @Select({
         "select",
         "tid, title, memo, code, face_url, view_url, dir_key, p_dir_key, dir_name, qq, ",
-        "status, download_num, view_num, file_id",
+        "status, download_num, view_num, file_id, subject_code",
         "from t_bootstrap_res",
         "where tid = #{tid,jdbcType=INTEGER}"
     })
@@ -83,7 +84,8 @@ public interface TBootstrapResMapper {
         @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
         @Result(column="download_num", property="downloadNum", jdbcType=JdbcType.INTEGER),
         @Result(column="view_num", property="viewNum", jdbcType=JdbcType.INTEGER),
-        @Result(column="file_id", property="fileId", jdbcType=JdbcType.VARCHAR)
+        @Result(column="file_id", property="fileId", jdbcType=JdbcType.VARCHAR),
+        @Result(column="subject_code", property="subjectCode", jdbcType=JdbcType.VARCHAR)
     })
     TBootstrapRes selectByPrimaryKey(Integer tid);
 
@@ -104,7 +106,8 @@ public interface TBootstrapResMapper {
           "status = #{status,jdbcType=INTEGER},",
           "download_num = #{downloadNum,jdbcType=INTEGER},",
           "view_num = #{viewNum,jdbcType=INTEGER},",
-          "file_id = #{fileId,jdbcType=VARCHAR}",
+          "file_id = #{fileId,jdbcType=VARCHAR},",
+          "subject_code = #{subjectCode,jdbcType=VARCHAR}",
         "where tid = #{tid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(TBootstrapRes record);

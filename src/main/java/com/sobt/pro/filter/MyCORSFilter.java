@@ -34,8 +34,12 @@ public class MyCORSFilter implements Filter {
             List<String> path=new ArrayList<>();
             //授权域
             path.add("http://localhost:12000");
+            path.add("http://localhost:12002");
             path.add("http://localhost:3000");
             path.add("http://localhost");
+            path.add("http://demo.17sobt.com");
+            path.add("http://cs.17sobt.com");
+            path.add("http://www.17sobt.com");
             if(path.contains(url)){
                 response.setHeader("Access-Control-Allow-Origin", url);
                 response.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");

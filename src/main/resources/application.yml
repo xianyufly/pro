@@ -30,7 +30,7 @@ spring:
   profiles: local
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/news?&allowMultiQueries=true&useUnicode=true&autoReconnect=true&useOldAliasMetadataBehavior=true
+    url: jdbc:mysql://localhost:3306/news?&allowMultiQueries=true&autoReconnect=true&useOldAliasMetadataBehavior=true
     username: root
     password: xian0402
 #    url: jdbc:mysql://114.115.143.199:6306/news?&allowMultiQueries=true&useUnicode=true&autoReconnect=true&useOldAliasMetadataBehavior=true
@@ -46,7 +46,7 @@ spring:
   profiles: prod
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.0.172:6306/news?&allowMultiQueries=true&useUnicode=true&autoReconnect=true&useOldAliasMetadataBehavior=true
+    url: jdbc:mysql://192.168.0.172:6306/news?&allowMultiQueries=true&autoReconnect=true&useOldAliasMetadataBehavior=true
     username: 17sobt.com
     password: 17sobt.com@123456
 python:
