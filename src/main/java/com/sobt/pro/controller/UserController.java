@@ -50,7 +50,7 @@ public class UserController {
         return userService.login(param);
     }
 
-    @RequestMapping("initData")
+    @RequestMapping("plat/initData")
     @ResponseBody
     public SuccessBean<UserOutDto.InitDataOutDto> initData(@RequestBody @Valid UserInDto.InitDataInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
@@ -80,6 +80,17 @@ public class UserController {
         session.setAttribute("code", vCode.getCode());
         BufferedImage image = (BufferedImage) map.get("code_img");
         ImageIO.write(image, "JPEG", response.getOutputStream());
+    }
+
+    /**
+     * 验证码初始化
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping("plat/logout")
+    @ResponseBody
+    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        session.removeAttribute("user");
     }
 
 

@@ -26,7 +26,7 @@ public class MenuController {
     @Resource
     MenuService menuService;
 
-    @RequestMapping(value = "parentLevelMenu")
+    @RequestMapping(value = "plat/parentLevelMenu")
     public SuccessBean<MenuOutDto.ParentLevelMenuOutDto> parentLevelMenu(@RequestBody @Valid MenuInDto.ParentLevelMenuInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean<MenuOutDto.ParentLevelMenuOutDto> successBean=new SuccessBean<>();
@@ -38,7 +38,7 @@ public class MenuController {
         return menuService.parentLevelMenu(param);
     }
 
-    @RequestMapping(value = "menuData")
+    @RequestMapping(value = "plat/menuData")
     public SuccessBean<MenuOutDto.MenuDataOutDto> menuData(@RequestBody @Valid MenuInDto.MenuDataInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean<MenuOutDto.MenuDataOutDto> successBean=new SuccessBean<>();
@@ -50,19 +50,19 @@ public class MenuController {
         return menuService.menuData(param);
     }
 
-    @RequestMapping(value = "saveMenu")
+    @RequestMapping(value = "plat/saveMenu")
     public SuccessBean saveMenu(@RequestBody TBootstrapSubject param){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         return menuService.saveMenu(param);
     }
 
-    @RequestMapping(value = "editMenu")
+    @RequestMapping(value = "plat/editMenu")
     public SuccessBean editMenu(@RequestBody TBootstrapSubject param){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         return menuService.editMenu(param);
     }
 
-    @RequestMapping(value = "deleteMenu")
+    @RequestMapping(value = "plat/deleteMenu")
     public SuccessBean deleteMenu(@RequestBody TBootstrapSubject param){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         return menuService.deleteMenu(param);

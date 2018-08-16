@@ -25,7 +25,7 @@ public class TagsController {
     @Resource
     TagsService TagsService;
 
-    @RequestMapping(value = "parentLevelTags")
+    @RequestMapping(value = "plat/parentLevelTags")
     public SuccessBean<TagsOutDto.ParentLevelTagsOutDto> parentLevelTags(@RequestBody @Valid TagsInDto.ParentLevelTagsInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean<TagsOutDto.ParentLevelTagsOutDto> successBean=new SuccessBean<>();
@@ -37,7 +37,7 @@ public class TagsController {
         return TagsService.parentLevelTags(param);
     }
 
-    @RequestMapping(value = "tagsData")
+    @RequestMapping(value = "plat/tagsData")
     public SuccessBean<TagsOutDto.TagsDataOutDto> tagsData(@RequestBody @Valid TagsInDto.TagsDataInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean<TagsOutDto.TagsDataOutDto> successBean=new SuccessBean<>();
@@ -49,19 +49,19 @@ public class TagsController {
         return TagsService.TagsData(param);
     }
 
-    @RequestMapping(value = "saveTags")
+    @RequestMapping(value = "plat/saveTags")
     public SuccessBean saveTags(@RequestBody TBootstrapTag param){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         return TagsService.saveTags(param);
     }
 
-    @RequestMapping(value = "editTags")
+    @RequestMapping(value = "plat/editTags")
     public SuccessBean editTags(@RequestBody TBootstrapTag param){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         return TagsService.editTags(param);
     }
 
-    @RequestMapping(value = "deleteTags")
+    @RequestMapping(value = "plat/deleteTags")
     public SuccessBean deleteTags(@RequestBody TBootstrapTag param){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         return TagsService.deleteTags(param);

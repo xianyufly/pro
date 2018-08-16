@@ -26,7 +26,7 @@ public class TemplateMngController {
     @Resource
     TemplateMngService templateMngService;
 
-    @RequestMapping(value = "templateData")
+    @RequestMapping(value = "plat/templateData")
     public SuccessBean<TemplateMngOutDto.TemplateDataOutDto> templateData(@RequestBody @Valid TemplateMngInDto.TemplateDataInDto param , BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean<TemplateMngOutDto.TemplateDataOutDto> successBean=new SuccessBean<>();
@@ -38,7 +38,7 @@ public class TemplateMngController {
         return templateMngService.templateData(param);
     }
 
-    @RequestMapping(value = "editTemplate")
+    @RequestMapping(value = "plat/editTemplate")
     public SuccessBean editTemplate(@RequestBody @Valid TemplateMngInDto.EditTemplateInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean successBean=new SuccessBean<>();
@@ -50,7 +50,7 @@ public class TemplateMngController {
         return templateMngService.editTemplate(param);
     }
 
-    @RequestMapping(value = "deleteTemplate")
+    @RequestMapping(value = "plat/deleteTemplate")
     public SuccessBean deleteTemplate(@RequestBody @Valid TBootstrapRes param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean successBean=new SuccessBean<>();
@@ -62,7 +62,7 @@ public class TemplateMngController {
         return templateMngService.deleteTemplate(param);
     }
 
-    @RequestMapping(value = "menuList")
+    @RequestMapping(value = "plat/menuList")
     public SuccessBean<TemplateMngOutDto.MenuListOutDto> menuList(@RequestBody @Valid TemplateMngInDto.MenuListInDto param, BindingResult result){
 
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
@@ -75,7 +75,7 @@ public class TemplateMngController {
         return templateMngService.menuList(param);
     }
 
-    @RequestMapping(value = "tagList")
+    @RequestMapping(value = "plat/tagList")
     public SuccessBean<TemplateMngOutDto.TagsListOutDto> tagList(@RequestBody @Valid TemplateMngInDto.TagsListInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
         SuccessBean<TemplateMngOutDto.TagsListOutDto> successBean=new SuccessBean<>();
