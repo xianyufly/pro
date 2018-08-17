@@ -25,7 +25,7 @@
             SELECT temp.res_id
             FROM
             <foreach collection="tagIds" open="(" close=")" separator=" UNION ALL " item="item">
-                SELECT res_id FROM t_boot_res_tag
+                SELECT DISTINCT res_id FROM t_boot_res_tag
                 WHERE tag_id IN <foreach collection="item" open="(" close=")" separator="," item="child">#{child}</foreach>
             </foreach>
              temp
