@@ -12,4 +12,28 @@
         AND ta.status=0
         ORDER BY RAND() LIMIT 6
     </select>
+    
+    <select id="selectRandomResByTags" parameterType="HashMap" resultType="TBootstrapRes">
+        SELECT tid,
+        dir_name dirName,
+        title,
+        face_url faceUrl
+        FROM t_bootstrap_res ta
+        WHERE 1=1
+        <if test="tagIds!=null">
+            AND ta.tid IN (
+            SELECT temp.res_id
+            FROM
+            <foreach collection="tagIds" open="(" close=")" separator=" UNION ALL " item="item">
+                SELECT res_id FROM t_boot_res_tag
+                WHERE tag_id IN <foreach collection="item" open="(" close=")" separator="," item="child">#{child}</foreach>
+            </foreach>
+             temp
+            GROUP BY temp.res_id
+            HAVING COUNT(temp.res_id)>=${tagIds.size}
+            )
+        </if>
+        AND ta.status=0
+
+    </select>
 </mapper>

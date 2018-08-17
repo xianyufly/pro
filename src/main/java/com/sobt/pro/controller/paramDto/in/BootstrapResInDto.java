@@ -28,6 +28,28 @@ public class BootstrapResInDto {
         }
     }
 
+    public static class SearchBootstrapResByParamInDto extends PageBean {
+        private String filter;
+
+        private String subject;
+
+        public String getFilter() {
+            return filter;
+        }
+
+        public void setFilter(String filter) {
+            this.filter = filter;
+        }
+
+        public String getSubject() {
+            return subject;
+        }
+
+        public void setSubject(String subject) {
+            this.subject = subject;
+        }
+    }
+
     /**
      * 获取文章详情
      */

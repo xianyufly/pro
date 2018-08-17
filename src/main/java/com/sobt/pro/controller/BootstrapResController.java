@@ -39,6 +39,18 @@ public class BootstrapResController {
         return bootstrapResService.getBootstrapResByPage(param);
     }
 
+    @RequestMapping(value = "searchBootstrapResByParam")
+    public SuccessBean<BootstrapResOutDto.SearchBootstrapResByParamOutDto> searchBootstrapResByParam (@RequestBody @Valid BootstrapResInDto.SearchBootstrapResByParamInDto param, BindingResult result){
+        log.info("--------------请求参数:"+ JSONObject.toJSONString(param));
+        SuccessBean<BootstrapResOutDto.SearchBootstrapResByParamOutDto> successBean=new SuccessBean<>();
+        if(result.hasErrors()){
+            successBean.setError(MsgEnum.Param_Error.getCode());
+            successBean.setDesc(MsgEnum.Param_Error.getMsg(result));
+            return successBean;
+        }
+        return bootstrapResService.searchBootstrapResByParam(param);
+    }
+
     @RequestMapping(value = "getBootstrapResDetail")
     public SuccessBean<BootstrapResOutDto.GetBootstrapResDetailOutDto> getBootstrapResDetail(@RequestBody @Valid BootstrapResInDto.GetBootstrapResDetailInDto param, BindingResult result){
         log.info("--------------请求参数:"+ JSONObject.toJSONString(param));

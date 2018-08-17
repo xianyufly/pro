@@ -9,4 +9,9 @@
     <select id="getTagIdByResId" parameterType="java.lang.Integer" resultType="java.lang.Integer" >
        SELECT tag_id FROM t_boot_res_tag WHERE res_id=#{resId}
     </select>
+
+    <select id="getTagByResId" parameterType="java.lang.Integer" resultType="TBootstrapTag" >
+      SELECT tid,text FROM t_bootstrap_tag tbt
+      WHERE tbt.tid IN ( SELECT tag_id FROM t_boot_res_tag WHERE res_id=#{resId})
+    </select>
 </mapper>

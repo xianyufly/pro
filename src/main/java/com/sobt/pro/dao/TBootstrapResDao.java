@@ -9,11 +9,17 @@ import java.util.Map;
 public interface TBootstrapResDao extends TBootstrapResMapper {
 
     /**
-     * 随机查找2篇文章
+     * 随机查找资源
      * @param param
      * @return
      */
     public List<TBootstrapRes> selectRandomRes(Map<String,Object> param);
 
+    /**
+     * 通过标签ID查找模板资源
+     * @param param
+     * @return
+     */
+    public List<TBootstrapRes> selectRandomResByTags(Map<String,Object> param);
 
 }
