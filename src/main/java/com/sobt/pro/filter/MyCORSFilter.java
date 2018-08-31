@@ -1,6 +1,8 @@
 package com.sobt.pro.filter;
 
 import com.alibaba.fastjson.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyCORSFilter implements Filter {
+
+    Logger log= LoggerFactory.getLogger(this.getClass());
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -25,7 +29,13 @@ public class MyCORSFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String url=request.getHeader("Origin");
         if(url!=null){
-            int index=url.indexOf("/", 7);
+            int index=-1;
+            if(url.contains("https:")){
+                index=url.indexOf("/", 8);
+            }else {
+                index=url.indexOf("/", 7);
+            }
+
             if(index==-1){
                 url=url;
             }else{
@@ -38,8 +48,11 @@ public class MyCORSFilter implements Filter {
             path.add("http://localhost:3000");
             path.add("http://localhost");
             path.add("http://demo.17sobt.com");
+            path.add("https://demo.17sobt.com");
             path.add("http://cs.17sobt.com");
+            path.add("https://cs.17sobt.com");
             path.add("http://www.17sobt.com");
+            path.add("https://www.17sobt.com");
             if(path.contains(url)){
                 response.setHeader("Access-Control-Allow-Origin", url);
                 response.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
